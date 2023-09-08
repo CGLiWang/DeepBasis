@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+
+    <title>DeepBasis</title>
+
+
+    <!-- <base href="/"> -->
+
+<!--     <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
+  <link rel="icon" type="image/png" href="img/seal_icon.png">
+    <!-- Place favicon.ico in the root directory -->
+<!-- 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css"> -->
+    <link rel="stylesheet" href="css/app.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110862391-3"></script> -->
+    <!-- <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-110862391-3');
+    </script> -->
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+    
+    <script src="js/app.js"></script>
+</head>
+
+<body>
+    <div class="container" id="main">
+        <div class="row">
+            <h1 class="col-md-12 text-center">
+                DeepBasis: Hand-Held Single-Image SVBRDF Capture </br>
+                via Two-Level Basis Material Model </br>
+                <small>
+                    SIGGRAPH ASIA 2023
+                </small>
+            </h1>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h3>
+                    <a href="https://cgliwang.github.io" target="_blank">Li Wang</a>, 
+                    <a href="https://klkjjhjkhjhg.github.io" target="_blank">Lianghao Zhang</a>, 
+                    Fangzhou Gao,
+                    <a href="http://cic.tju.edu.cn/faculty/zhangjiawan/index.htm" target="_blank">Jiawan Zhang</a>
+                  </h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <a href="http://cic.tju.edu.cn/" target="_blank">College of Intelligence and Computing, Tianjin University</a>
+            </div>
+        </div>
+
+
+        <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <ul class="nav nav-pills nav-justified">
+                        <li>
+                            <a href="final_paper.pdf">
+                            <image src="images/paper.png" height="120px"><br>
+                                <h4><strong>Paper</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="Supple/supplementary.pdf">
+                            <image src="doc/paperclip.png" height="120px"><br>
+                                <h4><strong>Supplementary material</strong></h4>
+                            </a>
+                        </li>
+                        <!-- <li>
+                            <a href="https://github.com/xilongzhou/PhotoMat">
+                            <image src="images/video.png" height="120px"><br>
+                                <h4><strong> Video </strong></h4>
+                            </a>
+                        </li> -->
+                        <li>
+                            <a href="https://github.com/CGLiWang/DeepBasis_SVBRDF">
+                            <image src="doc/github_pad.png" height="120px"><br>
+                                <h4><strong> Code </strong></h4>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+
+
+            
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Abstract
+                </h3>
+                <image src="images/representation.jpg" class="img-responsive" alt="overview"><br>
+                <!-- <image src="doc/representation2.jpg" class="img-responsive" alt="overview"><br> -->
+                <p class="text-justify">
+                    Recovering spatial-varying bi-directional reflectance distribution function (SVBRDF) from a single hand-held captured image has been a meaningful but challenging task in computer graphics.
+                    Benefiting from the learned data priors, some previous methods can utilize the potential material correlations between image pixels to serve for SVBRDF estimation. 
+                    To further reduce the ambiguity from single-image estimation, it is necessary to integrate additional explicit material correlations.
+                    Given the flexible expressive ability of basis material assumption, we propose DeepBasis, a deep-learning-based method integrated with this assumption.
+                    It jointly predicts basis materials and their blending weights. Then the estimated SVBRDF is their linear combination. 
+                    To facilitate the extraction of data priors, we introduce a two-level basis model to keep the sufficient representative while using a fixed number of basis materials. 
+                    Moreover, considering the absence of ground-truth basis materials and weights during network training, we propose a variance-consistency loss and adopt a joint prediction strategy, thereby enabling the existing SVBRDF dataset available for training. 
+                    Additionally, due to the hand-held capture setting, the exact lighting directions are unknown. 
+                    We model the lighting direction estimation as a sampling problem and propose an optimization-based algorithm to find the optimal estimation. 
+                    Quantitative evaluation and qualitative analysis demonstrate that DeepBasis can produce a higher quality SVBRDF estimation than previous methods.
+                    All source codes will be publicly released.                 </p>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Supplementary Video (comming soon)
+                </h3>
+                <!-- <div class="text-center">
+                    <div style="position:relative;">
+                        <iframe align="center" width="100%" height="422" src="https://www.youtube.com/embed/FsJdZzLtWBs" frameborder="0" allowfullscreen=""></iframe>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+
+
+
+        <!--<div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Fast Forward Video 
+                </h3>
+                <div class="text-center">
+                    <div style="position:relative;">
+                        <iframe align="center" width="100%" height="422" src="https://www.youtube.com/embed/jOxkwIGnrcU" frameborder="0" allowfullscreen=""></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    BibTeX
+                </h3>
+                <!-- <div class="form-group col-md-10 col-md-offset-1">
+                <pre>@inproceedings{zhou2023PhotoMat,
+                  title={PhotoMat: A Material Generator Learned from Single Flash Photos},
+                  author={Zhou, Xilong and Hašan, Miloš and Deschaintre, Valentin and Guerrero, Paul and Hold-Geoffroy, Yannick and Sunkavalli, Kalyan and Kalantari, Nima Khademi},
+                  booktitle={SIGGRAPH 2023 Conference Papers},
+                  year={2023}
+                }</pre>
+                </div> -->
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Acknowledgements
+                </h3>
+                <p class="text-justify">
+                    This work was supported in part by National Key Research and Development Program of China (2022YFF0904301).
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
